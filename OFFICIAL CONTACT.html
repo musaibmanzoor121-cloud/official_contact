@@ -1,0 +1,396 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Shereaz Furnitures</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #3d2817 0%, #8B4513 50%, #D2691E 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><path d="M0,50 Q25,45 50,50 T100,50" stroke="rgba(255,255,255,0.03)" fill="none" stroke-width="2"/></svg>');
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .container {
+            background: linear-gradient(145deg, #ffffff 0%, #faf8f5 100%);
+            border-radius: 25px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(139, 69, 19, 0.3);
+            max-width: 550px;
+            width: 100%;
+            padding: 45px 35px;
+            text-align: center;
+            position: relative;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-section {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 60px;
+            margin-bottom: 15px;
+            animation: rotate 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes rotate {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        h1 {
+            color: #6B3410;
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: #8B4513;
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #8B4513, #D2691E);
+            margin: 20px auto;
+            border-radius: 3px;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, #F5F5DC 0%, #faf8f0 100%);
+            border-left: 5px solid #8B4513;
+            padding: 22px;
+            margin-bottom: 18px;
+            border-radius: 15px;
+            text-align: left;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 69, 19, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .contact-item:hover::before {
+            left: 100%;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.25);
+            border-left-width: 6px;
+        }
+
+        .contact-item .icon {
+            font-size: 28px;
+            margin-right: 15px;
+            vertical-align: middle;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        .contact-item .label {
+            font-weight: 700;
+            color: #6B3410;
+            font-size: 12px;
+            display: block;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .contact-item .value {
+            color: #333;
+            font-size: 17px;
+            word-break: break-word;
+            font-weight: 500;
+        }
+
+        .contact-item a {
+            color: #8B4513;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .contact-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #D2691E;
+            transition: width 0.3s;
+        }
+
+        .contact-item a:hover::after {
+            width: 100%;
+        }
+
+        .contact-item a:hover {
+            color: #D2691E;
+        }
+
+        .social-section {
+            margin-top: 35px;
+            padding-top: 35px;
+            border-top: 2px solid #e8e3d8;
+            position: relative;
+        }
+
+        .social-section h2 {
+            color: #6B3410;
+            font-size: 22px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            background: linear-gradient(135deg, #8B4513 0%, #6B3410 100%);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .social-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .social-btn:hover {
+            background: linear-gradient(135deg, #6B3410 0%, #3d2817 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(139, 69, 19, 0.4);
+        }
+
+        .social-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .footer {
+            margin-top: 35px;
+            color: #8B4513;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .footer p {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .stats-section {
+            display: flex;
+            justify-content: space-around;
+            margin: 25px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f5dc 0%, #faf8f0 100%);
+            border-radius: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #6B3410;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #8B4513;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 35px 25px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .contact-item {
+                padding: 18px;
+            }
+
+            .social-btn {
+                padding: 12px 22px;
+                font-size: 14px;
+            }
+
+            .logo {
+                font-size: 50px;
+            }
+
+            .stats-section {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <div class="logo">🪵</div>
+            <h1>Shereaz Furnitures</h1>
+            <p class="subtitle">Crafting Quality Furniture with Passion</p>
+            <div class="divider"></div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Happy Clients</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">1000+</span>
+                <span class="stat-label">Projects Done</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">20+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <span class="icon">📱</span>
+            <span class="label">Phone</span>
+            <div class="value">
+                <a href="tel:+919906546255">+91 9906546255</a>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <span class="icon">✉️</span>
+            <span class="label">Email</span>
+            <div class="value">
+                <a href="mailto:tawheedahmad@gmail.com">tawheedahmad@gmail.com</a>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <span class="icon">📍</span>
+            <span class="label">ASHAJIBORA NEAR JANDK BANK</span>
+            <div class="value">ANANTANG,JAMMU AND KASHMIR</div>
+        </div>
+
+        <div class="contact-item">
+            <span class="icon">🕒</span>
+            <span class="label">Working Hours</span>
+            <div class="value">Mon - Sun: 9:00 AM - 5:00(FRIDAY OFF) PM</div>
+        </div>
+
+        <div class="social-section">
+            <h2>Connect With Us</h2>
+            <div class="social-links">
+                <a href="https://instagram.com/shereaz.furnitures" class="social-btn" target="_blank">📸 Instagram</a>
+                <a href="https://facebook.com/shereazfurnitures" class="social-btn" target="_blank">👍 Facebook</a>
+                <a href="https://youtube.com/@shereazfurnitures" class="social-btn" target="_blank">▶️ YouTube</a>
+                <a href="https://wa.me/919906546255" class="social-btn" target="_blank">💬 WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🪓 Handcrafted with Passion 🪓</p>
+        </div>
+    </div>
+</body>
+</html>
